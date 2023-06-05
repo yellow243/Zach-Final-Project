@@ -8,7 +8,7 @@ namespace Zach_Final_Project.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Temple_Location { get; set; }
-        public string Parents { get; set; }  
+        public string Parents { get; set; }          
       //  public string Symbol { get; set; }
     }
 }
