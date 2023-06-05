@@ -13,7 +13,7 @@ namespace Zach_Final_Project
             
             _conn = conn;
         }
-        public IEnumerable<God> GetAllProducts()
+        public IEnumerable<God> GetAllGods()
         {
             return _conn.Query<God>("SELECT * FROM greekgods;");
         }

@@ -1,7 +1,20 @@
+using MySql.Data.MySqlClient;
+using System.Data;
+using Zach_Final_Project;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IDbConnection>((s) =>
+{
+    IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("greekgods"));
+    conn.Open();
+    return conn;
+});
+
+builder.Services.AddTransient<IGodRepository, GodRepository>();
 
 var app = builder.Build();
 
