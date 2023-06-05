@@ -17,6 +17,12 @@ namespace Zach_Final_Project.Controllers
             var products = repo.GetAllGods();
             return View(products);
         }
-       
+
+        public IActionResult ViewGod(int id)
+        {
+            var product = repo.GetGod(id);
+            return View(product);
+        }
+
     }
 }

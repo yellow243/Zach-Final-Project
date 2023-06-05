@@ -17,5 +17,10 @@ namespace Zach_Final_Project
         {
             return _conn.Query<God>("SELECT * FROM greekgods;");
         }
+
+        public God GetGod(int id)
+        {
+            return _conn.QuerySingle<God>("SELECT * FROM greekgods WHERE GodID = @id", new { id = id });
+        }
     }
 }
