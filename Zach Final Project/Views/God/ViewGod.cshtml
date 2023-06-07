@@ -1,0 +1,26 @@
+﻿@model God
+
+<h3>@Model.Name Information</h3>
+
+<table class="table">
+    <tr>
+        
+        <th>Name</th>
+        <th>Description</th>
+        <th>Parents</th>
+        <th>Temple Location</th>
+        
+    </tr>
+    <tr>
+        
+        <td>@Model.Name</td>
+        <td>@Model.Description</td>
+        <td>@Model.Parents</td>
+        <td>@Model.Temple_Location</td>
+        
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/God/UpdateGod/@Model.GodID">Update this God</a>
+</div>

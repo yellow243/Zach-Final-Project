@@ -22,5 +22,24 @@ namespace Zach_Final_Project
         {
             return _conn.QuerySingle<God>("SELECT * FROM greekgods WHERE GodID = @id", new { id = id });
         }
+        public void UpdateGod(God god)
+        {
+            _conn.Execute("UPDATE greekgods SET Name = @name, Description = @description WHERE GodID = @id",
+             new { name = god.Name, description = god.Description, id = god.GodID });
+        }
+
+        public void InsertGod(God GodToInsert)
+        {
+            _conn.Execute("INSERT INTO greekgods (NAME, Description) VALUES (@name, @description);",
+                new { name = GodToInsert.Name, description = GodToInsert.Description });
+        }
+
+        public void DeleteGod(God god)
+        {
+            _conn.Execute("DELETE FROM REVIEWS WHERE GodID = @id;", new { id = god.GodID });
+            _conn.Execute("DELETE FROM Sales WHERE GodID = @id;", new { id = god.GodID });
+            _conn.Execute("DELETE FROM Gods WHERE GodID = @id;", new { id = god.GodID });
+        }
+
     }
 }

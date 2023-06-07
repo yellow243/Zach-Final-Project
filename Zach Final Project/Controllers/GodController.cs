@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zach_Final_Project.Models;
 
 namespace Zach_Final_Project.Controllers
 {
@@ -14,15 +15,37 @@ namespace Zach_Final_Project.Controllers
         //Get: Controller
         public IActionResult Index()
         {
-            var products = repo.GetAllGods();
-            return View(products);
+            var gods = repo.GetAllGods();
+            return View(gods);
         }
 
         public IActionResult ViewGod(int id)
         {
-            var product = repo.GetGod(id);
-            return View(product);
+            var god = repo.GetGod(id);
+            return View(god);
         }
 
+        public IActionResult UpdateGod(int id)
+        {
+            God god = repo.GetGod(id);
+            if (god == null)
+            {
+                return View("GodNotFound");
+            }
+            return View(god);
+        }
+
+        public IActionResult UpdateGodToDatabase(God god)
+        {
+            repo.UpdateGod(god);
+
+            return RedirectToAction("ViewGod", new { id = god.GodID });
+        }
+
+        public IActionResult InsertGodToDatabase(God godToInsert)
+        {
+            repo.InsertGod(godToInsert);
+            return RedirectToAction("Index");
+        }
     }
 }

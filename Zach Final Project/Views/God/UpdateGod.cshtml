@@ -1,0 +1,16 @@
+﻿@model God
+
+<h2>Update @Model.Name</h2>
+
+@using (Html.BeginForm("UpdateGodToDatabase", "God", "Post"))
+{
+    <input asp-for="GodID" type="hidden" value="@Model.GodID" />
+
+    <label asp-for="Name" class="control-label">Name</label>
+    <input type="text" name="Name" class="form-control" value="@Model.Name" />
+
+    <label asp-for="Description" class="control-label">Description</label>    
+    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+
+    <input type="submit" value="Update God" class="btn btn-primary" />
+}

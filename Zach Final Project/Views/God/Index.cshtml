@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<God>
 
-<h2>Products</h2>
+<h2>gods</h2>
+<div style="display: block">
+    <a href="/God/InsertGod/">Create a New God</a>
+</div>
+
 <table class="table">
     <tr>
         <th>GodID</th>
@@ -11,15 +15,15 @@
         @*<th>Symbol</th>*@
     </tr>
 
-    @foreach (var product in @Model)
+    @foreach (var god in @Model)
     {
         <tr>
-            <td>@product.GodID</td>
-            <td>@product.Name</td>
-            <td>@product.Description</td>
-            <td>@product.Temple_Location</td>
-            <td>@product.Parents</td>
-           @*<td>@product.Symbol</td>*@
+            <td><a href=/God/ViewGod/@god.GodID>@god.GodID</a></td>
+            <td>@god.Name</td>
+            <td>@god.Description</td>
+            <td>@god.Temple_Location</td>
+            <td>@god.Parents</td>
+           @*<td>@god.Symbol</td>*@
         </tr>
     }
 
