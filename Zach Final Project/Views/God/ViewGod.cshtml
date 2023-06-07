@@ -24,3 +24,12 @@
 <div style="display: block">
     <a href="/God/UpdateGod/@Model.GodID">Update this God</a>
 </div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteGod", "God", "Post"))
+    {
+        <input type="hidden" asp-for="GodID" value="@Model.GodID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this god" />
+    }
+</div>

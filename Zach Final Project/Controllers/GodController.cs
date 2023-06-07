@@ -42,9 +42,21 @@ namespace Zach_Final_Project.Controllers
             return RedirectToAction("ViewGod", new { id = god.GodID });
         }
 
+        public IActionResult InsertGod()
+        {
+            
+            return View(new God());
+        }
+
         public IActionResult InsertGodToDatabase(God godToInsert)
         {
             repo.InsertGod(godToInsert);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteGod(God god)
+        {
+            repo.DeleteGod(god);
             return RedirectToAction("Index");
         }
     }
